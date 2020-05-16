@@ -12,7 +12,7 @@ const Home = () => (
   <div className={styles.outer}>
     <div className={styles.inner}>
       <Head>
-        <title>$17 Phone</title>
+        <title>My $17 Phone</title>
         <link rel="icon" href="/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
