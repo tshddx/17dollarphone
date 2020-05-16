@@ -1,0 +1,54 @@
+/* Dimensions */
+
+:root {
+  --body-size: 15px;
+  --grid-gap: 10px;
+  --content-width: 768px;
+  --content-padding: 15px;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --body-size: 17px;
+    --grid-gap: 12px;
+    --content-padding: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  :root {
+    --body-size: 18px;
+    --grid-gap: 16px;
+    --content-padding: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --body-size: 19px;
+    --grid-gap: 20px;
+    --content-padding: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --body-size: 20px;
+    --grid-gap: 25px;
+    --content-padding: 50px;
+  }
+}
+
+/* Colors */
+
+:root {
+  --bg1: #f8f7f7;
+  --bg2: #2e1216;
+  --text1: #532129;
+  --text2: #9f5861;
+  --text3: #d8c3c3;
+  --green: #00c577;
+  --green-light: #00c577;
+  --green-lighter: #00dd85;
+  --twitter-blue: #1b95e0;
+}

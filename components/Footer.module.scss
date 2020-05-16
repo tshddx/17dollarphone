@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  background-color: var(--bg2);
+  color: var(--bg1);
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  padding-top: calc(var(--content-padding) * 2);
+  padding-bottom: calc(
+    (var(--content-padding) * 2) + env(safe-area-inset-bottom)
+  );
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--content-width);
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: var(--grid-gap);
+}
+
+.link {
+  color: var(--text3);
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

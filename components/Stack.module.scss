@@ -1,0 +1,26 @@
+.stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.center {
+  align-items: center;
+}
+
+.stackChild:last-child {
+  padding-bottom: 0;
+}
+
+.stackChildGap1 {
+  padding-bottom: 5px;
+}
+
+.stackChildGap2 {
+  padding-bottom: calc(var(--body-size) * 1.65);
+}
+
+.stackChildGap3 {
+  padding-bottom: calc(var(--body-size) * 3.3);
+}
