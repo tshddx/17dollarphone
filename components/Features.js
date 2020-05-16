@@ -1,6 +1,7 @@
 import React from 'react';
 import { FEATURES, OPTIONS } from '../utils/features';
 import Stack from './Stack';
+import styles from './Features.module.scss';
 
 const Features = ({}) => {
   return (
@@ -11,19 +12,25 @@ const Features = ({}) => {
         </div>
         <div>Spend wisely on these 7 features:</div>
       </div>
-      {FEATURES.map(({ name, emoji, dollars }) => {
-        return (
-          <>
-            <div>
-              <div>{emoji}</div>
-              <div>{name}</div>
-            </div>
-            {OPTIONS.map(({ dollars }) => {
-              return <div id={dollars}>${dollars}</div>;
-            })}
-          </>
-        );
-      })}
+      <div className={styles.grid}>
+        {FEATURES.map(({ name, emoji, dollars }) => {
+          return (
+            <>
+              <div className={styles.name}>
+                <span className={styles.emoji}>{emoji}</span>
+                <span>{name}</span>
+              </div>
+              {OPTIONS.map(({ dollars }) => {
+                return (
+                  <div key={dollars} className={styles.option}>
+                    ${dollars}
+                  </div>
+                );
+              })}
+            </>
+          );
+        })}
+      </div>
     </Stack>
   );
 };
