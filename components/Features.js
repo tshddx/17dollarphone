@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FEATURES, OPTIONS } from '../utils/features';
 import Stack from './Stack';
 import styles from './Features.module.scss';
@@ -22,9 +23,9 @@ const Features = ({}) => {
               </div>
               {OPTIONS.map(({ dollars }) => {
                 return (
-                  <div key={dollars} className={styles.option}>
-                    ${dollars}
-                  </div>
+                  <Link key={dollars} href="/">
+                    <a className={styles.option}>${dollars}</a>
+                  </Link>
                 );
               })}
             </>
