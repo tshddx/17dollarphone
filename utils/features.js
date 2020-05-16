@@ -85,7 +85,6 @@ export function makePath(selectedFeatures) {
 export function parsePath(path) {
   const strings = path.split(',');
   const pairs = strings.map((string) => string.match(/[A-Z][a-z]+/g));
-  console.log({ pairs });
   const selectedFeatures = getDefaultSelectedFeatures();
   pairs.forEach(([optionName, featureName]) => {
     const option = OPTIONS.find((option) => option.name === optionName);

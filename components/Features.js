@@ -16,12 +16,10 @@ import styles from './Features.module.scss';
 
 const Features = ({}) => {
   const router = useRouter();
-  console.log('query', router.query);
   const selectedFeatures = router.query.features
     ? parsePath(router.query.features)
     : getDefaultSelectedFeatures();
   const stats = selectedFeaturesStats(selectedFeatures);
-  console.log('stats', stats);
   let message1 = (
     <>
       You have <strong>${stats.remainingDollars}</strong> left to spend.{' '}

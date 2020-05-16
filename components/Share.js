@@ -5,12 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Stack from './Stack';
 import styles from './Share.module.scss';
 import {
-  FEATURES,
-  OPTIONS,
   getDefaultSelectedFeatures,
-  selectedFeaturesStats,
-  updateSelectedFeatures,
-  makePath,
   parsePath,
   makeSentence,
 } from '../utils/features';
@@ -18,13 +13,10 @@ import {
 const Share = ({}) => {
   const [copied, setCopied] = React.useState(false);
   const router = useRouter();
-  console.log('query', router);
   const selectedFeatures = router.query.features
     ? parsePath(router.query.features)
     : getDefaultSelectedFeatures();
-  const stats = selectedFeaturesStats(selectedFeatures);
   const sentence = makeSentence(selectedFeatures);
-  console.log(sentence);
   const url = `https://17dollarphone.com${router.asPath}`;
   return (
     <Stack gap={2} center>
