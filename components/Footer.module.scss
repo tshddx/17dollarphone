@@ -22,7 +22,7 @@
 }
 
 .link {
-  color: var(--text3);
+  color: var(--text3light);
   text-decoration: none;
   &:hover,
   &:focus {
@@ -36,5 +36,5 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--text2);
+  color: var(--text2light);
 }

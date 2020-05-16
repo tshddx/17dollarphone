@@ -42,13 +42,32 @@
 /* Colors */
 
 :root {
+  --bg0: #ffffff;
   --bg1: #f8f7f7;
   --bg2: #2e1216;
   --text1: #532129;
   --text2: #9f5861;
   --text3: #d8c3c3;
-  --green: #00c577;
-  --green-light: #00c577;
-  --green-lighter: #00dd85;
+  --text1light: #532129;
+  --text2light: #9f5861;
+  --text3light: #d8c3c3;
+  --green: #00ae68;
   --twitter-blue: #1b95e0;
+  --red: #ce3717;
+}
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg0: #2e1216;
+    --bg1: #422f31;
+    --bg2: #2e1216;
+    --text1: #ede3e3;
+    --text2: #d9b0b4;
+    --text3: #63383e;
+    --green: #00c577;
+    --twitter-blue: #1fa6f9;
+    --red: #dd380e;
+  }
 }
