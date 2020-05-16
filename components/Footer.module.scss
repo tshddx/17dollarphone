@@ -29,3 +29,12 @@
     text-decoration: underline;
   }
 }
+
+.pretitle {
+  font-size: 0.6rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text2);
+}

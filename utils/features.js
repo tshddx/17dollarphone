@@ -14,19 +14,41 @@ export const OPTIONS = [
   { name: 'Poor', dollars: 1 },
 ];
 
+export function getDefaultSelectedFeatures() {
+  const selectedFeatures = {};
+  FEATURES.forEach(({ name }) => {
+    selectedFeatures[name] = null;
+  });
+  return selectedFeatures;
+}
+
+export function updateSelectedFeatures(selectedFeatures, featureName, dollars) {
+  return { ...selectedFeatures, [featureName]: dollars };
+}
+
 export function makePath(selectedFeatures) {
   let strings = [];
-
   OPTIONS.forEach((option) => {
-    if (option.name === 'Poor') {
-      return;
-    }
-    Object.entries(selectedFeatures).forEach(([featureName, optionName]) => {
-      if (optionName === option.name) {
-        strings += `${option.name}${featureName}`;
+    Object.entries(selectedFeatures).forEach(([featureName, dollars]) => {
+      if (dollars === option.dollars) {
+        strings.push(`${option.name}${featureName}`);
       }
     });
   });
+  return strings.join(',');
+}
 
-  return strings.join('');
+export function parsePath(path) {
+  const strings = path.split(',');
+  const pairs = strings.map((string) => string.match(/[A-Z][a-z]+/g));
+  console.log({ pairs });
+  const selectedFeatures = getDefaultSelectedFeatures();
+  pairs.forEach(([optionName, featureName]) => {
+    const option = OPTIONS.find((option) => option.name === optionName);
+    if (!option) {
+      return;
+    }
+    selectedFeatures[featureName] = option.dollars;
+  });
+  return selectedFeatures;
 }
