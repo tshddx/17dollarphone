@@ -1,12 +1,13 @@
 import React from 'react';
 import Stack from './Stack';
+import styles from './Header.module.scss';
 
 const Header = ({}) => {
   return (
     <Stack gap={2}>
-      <div class="heading">
+      <div className={styles.inline}>
         <div>
-          You have<strong class="h1"> $17 </strong>
+          You have<strong className={styles.h1}> $17 </strong>
         </div>
         <div> to make the best budget phone.</div>
       </div>

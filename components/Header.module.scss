@@ -1,0 +1,11 @@
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  line-height: calc(var(--body-size) * 1.4);
+}
+
+.h1 {
+  font-size: 2.75rem;
+  font-weight: 500;
+}
