@@ -4,7 +4,7 @@
   width: 100%;
   grid-template-columns: max-content repeat(3, auto);
   grid-gap: var(--grid-gap);
-  align-items: baseline;
+  align-items: center;
 }
 
 .name {
