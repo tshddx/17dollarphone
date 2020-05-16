@@ -1,8 +1,9 @@
 .outer {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
 }
 
 .inner {

@@ -5,15 +5,21 @@ html {
   font-weight: 300;
   background-color: var(--bg1);
   color: var(--text1);
+  min-height: 100%;
+  height: 100%;
 }
 
 body {
   width: 100%;
+  min-height: 100%;
+  height: 100%;
 }
 
 #__next {
   /* This seems like a huge hack. */
   width: 100%;
+  min-height: 100%;
+  height: 100%;
 }
 
 strong {
