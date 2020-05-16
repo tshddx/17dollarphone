@@ -6,6 +6,7 @@ import {
   FEATURES,
   OPTIONS,
   getDefaultSelectedFeatures,
+  selectedFeaturesStats,
   updateSelectedFeatures,
   makePath,
   parsePath,
@@ -14,21 +15,35 @@ import Stack from './Stack';
 import styles from './Features.module.scss';
 
 const Features = ({}) => {
-  // const [selectedFeatures, _setSelectedFeatures] = React.useState(
-  //   getDefaultSelectedFeatures
-  // );
   const router = useRouter();
   console.log('query', router.query);
   const selectedFeatures = router.query.features
     ? parsePath(router.query.features)
     : getDefaultSelectedFeatures();
+  const stats = selectedFeaturesStats(selectedFeatures);
+  console.log('stats', stats);
+  let message1 = (
+    <>
+      You have <strong>${stats.remainingDollars}</strong> left to spend.{' '}
+    </>
+  );
+  let message2 = 'Spend wisely on these 7 features:';
+  if (stats.remainingDollars === 0) {
+    const firstMissingFeature = FEATURES.find(
+      (feature) => selectedFeatures[feature.name] === null
+    );
+    message1 = firstMissingFeature
+      ? `You're out of money!`
+      : 'This looks like a great budget phone!';
+    message2 = firstMissingFeature
+      ? firstMissingFeature.missingSentence
+      : 'Share it with a friend!';
+  }
   return (
     <Stack gap={2}>
       <div>
-        <div>
-          You have <strong>$17</strong> left to spend.
-        </div>
-        <div>Spend wisely on these 7 features:</div>
+        <div>{message1}</div>
+        <div>{message2}</div>
       </div>
       <div className={styles.grid}>
         {FEATURES.map(({ name, emoji, dollars }) => {
@@ -45,9 +60,26 @@ const Features = ({}) => {
                   name,
                   isSelected ? null : dollars
                 );
+                const isDisabled = newSelectedFeatures === null;
+                if (isDisabled) {
+                  return (
+                    <div
+                      key={dollars}
+                      className={classnames(styles.option, styles.disabled)}
+                    >
+                      ${dollars}
+                    </div>
+                  );
+                }
                 const path = makePath(newSelectedFeatures);
                 return (
-                  <Link key={dollars} href="/[features]" as={`/${path}`}>
+                  <Link
+                    key={dollars}
+                    href={path === '' ? '/' : '/[features]'}
+                    as={`/${path}`}
+                    prefetch={false}
+                    scroll={false}
+                  >
                     <a
                       className={classnames(styles.option, {
                         [styles.selected]: isSelected,

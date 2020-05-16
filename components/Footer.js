@@ -29,7 +29,11 @@ const Footer = ({}) => {
         </div>
         <div>
           <div className={styles.pretitle}>Source code</div>
-          <a className={styles.link} href="https://github.com" target="_blank">
+          <a
+            className={styles.link}
+            href="https://github.com/baddox/17dollarphone"
+            target="_blank"
+          >
             GitHub
           </a>
         </div>

@@ -11,6 +11,9 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 50px;
   font-size: var(--body-size);
   background-color: transparent;
