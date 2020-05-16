@@ -1,15 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import Stack from './Stack';
+import styles from './Share.module.scss';
 
 const Share = ({}) => {
   return (
-    <div class="stack s2 stack-center">
-      <h2>Share Your $17 Phone</h2>
-      <div class="share-buttons">
-        <button class="twitter-button">Share on Twitter</button>
-        <button class="copy-url-button">Copy URL</button>
+    <Stack gap={2} center>
+      <h2 className={styles.heading}>Share Your $17 Phone</h2>
+      <div className={styles.buttons}>
+        <button className={classnames(styles.button, styles.twitterButton)}>
+          Share on Twitter
+        </button>
+        <button className={classnames(styles.button, styles.copyUrlButton)}>
+          Copy URL
+        </button>
       </div>
-    </div>
+    </Stack>
   );
 };
 

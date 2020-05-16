@@ -1,0 +1,36 @@
+.heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.buttons {
+  display: grid;
+  grid-gap: var(--grid-gap);
+  justify-items: stretch;
+}
+
+.button {
+  height: 50px;
+  font-size: var(--body-size);
+  background-color: transparent;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.65;
+  }
+}
+
+.twitterButton {
+  border-color: var(--twitter-blue);
+  color: var(--twitter-blue);
+}
+
+.copyUrlButton {
+  border-color: var(--green);
+  color: var(--green);
+}
