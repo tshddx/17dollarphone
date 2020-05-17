@@ -5,3 +5,7 @@ const FeaturesPage = () => {
 };
 
 export default FeaturesPage;
+
+export async function getServerSideProps(_context) {
+  return { props: {} };
+}
