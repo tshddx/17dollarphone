@@ -5,6 +5,7 @@ export const FEATURES = [
     name: 'Display',
     emoji: '📱',
     missingSentence: `Even a pager has a display!`,
+    article: true,
   },
   {
     name: 'Specs',
@@ -15,12 +16,14 @@ export const FEATURES = [
     name: 'Camera',
     emoji: '📸',
     missingSentence: `Are you sure you don't want a camera?`,
+    article: true,
   },
   {
     name: 'Battery',
     emoji: '🔋',
     missingSentence:
       'Is your phone powered by solar panels or a supercapacitor?',
+    article: true,
   },
   {
     name: 'Design',
@@ -40,9 +43,9 @@ export const FEATURES = [
 ];
 
 export const OPTIONS = [
-  { name: 'Excellent', dollars: 5 },
-  { name: 'Average', dollars: 3 },
-  { name: 'Poor', dollars: 1 },
+  { name: 'Excellent', dollars: 5, article: 'an' },
+  { name: 'Average', dollars: 3, article: 'an' },
+  { name: 'Poor', dollars: 1, article: 'a' },
 ];
 
 export function getDefaultSelectedFeatures() {
@@ -100,14 +103,25 @@ export function makeSentence(selectedFeatures) {
   let strings = [];
   OPTIONS.forEach((option) => {
     Object.entries(selectedFeatures).forEach(([featureName, dollars]) => {
+      const feature = FEATURES.find((feature) => feature.name === featureName);
+      if (!feature) {
+        return;
+      }
       if (dollars === option.dollars) {
-        strings.push(
-          `${option.name.toLowerCase()} ${featureName.toLowerCase()}`
-        );
+        const words = [];
+        if (option.article && feature.article) {
+          words.push(option.article);
+        }
+        words.push(option.name.toLowerCase());
+        words.push(feature.name.toLowerCase());
+        strings.push(words.join(' '));
       }
     });
   });
+  if (strings.length === 0) {
+    return 'You have $17 to make the best budget phone.';
+  }
   return `My $17 dollar phone would have ${arrayToSentence(strings, {
-    lastSeparator: ', and ',
+    lastSeparator: ' and ',
   })}.`;
 }
